@@ -1,7 +1,4 @@
-package model;
-
-import java.util.ArrayList;
-import java.util.List;
+package web.model;
 
 public class Car {
 

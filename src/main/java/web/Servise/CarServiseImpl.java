@@ -1,11 +1,13 @@
-package Servise;
+package web.Servise;
 
-import model.Car;
+import org.springframework.stereotype.Component;
+import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarServiseImpl implements CarServise {
+@Component
+public class CarServiseImpl implements CarServise{
     List<Car> cars = new ArrayList<>();
 
     {
@@ -15,8 +17,11 @@ public class CarServiseImpl implements CarServise {
         cars.add(new Car(5, 1257, "gray"));
         cars.add(new Car(3, 1054, "black"));
     }
-
+    @Override
     public List<Car> returnCars(int count) {
+        if (count > 5) {
+            count = 5;
+        }
         return cars.stream().limit(count).toList();
     }
 }
